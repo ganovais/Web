@@ -3,15 +3,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 1</title>
+    
+    <style>
+        #div1 {
+            background-color: #ccc;
+        }
+
+        #div1  :first-child {
+            color: salmon;
+            font-size: 20px;
+        }
+
+        #div2 .para2 {
+            color: salmon;
+            font-size: 20px;
+        }
+
+        h1 {
+            color: red;
+            font-size: 13px;
+        }
+        .title1 {
+            color: green !important;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <h2>Subtitle</h2>
-    <p>Texto normal</p>
-    <p>
-        <b>Texto negrito</b>
-    </p>
-    <p><strong>Texto negrito</strong></p>
-    <p><small>Texto menor</small></p>
+    <div id="div1">
+        <h1 class="title1">Hello World</h1>
+        <p>Este é o primeiro!</p>
+        <p>Este é o segundo!</p>
+    </div>
+
+    <div id="div2">
+        <h1 class="title1">Hello World</h1>
+        <p class="para2">Este é meu texto!</p>
+    </div>
+    <div>
+        <h1 class="title1">Hello World</h1>
+        <p>Este é meu texto!</p>
+    </div>
+    <div>
+        <h1>Hello World</h1>
+        <p>Este é meu texto!</p>
+    </div>
+    <div>
+        <h1>Hello World</h1>
+        <p>Este é meu texto!</p>
+    </div>
+
 </body>
 </html>
