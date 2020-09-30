@@ -1,57 +1,50 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 1</title>
-    
-    <style>
-        #div1 {
-            background-color: #ccc;
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Aula 1</title>
 
-        #div1  :first-child {
-            color: salmon;
-            font-size: 20px;
-        }
+        <link rel="stylesheet" href="./assets/css/style.css" />
+    </head>
+    <body>
+        <header>
+            <nav class="nav">
+                <ul>
+                    <li>Sobre</li>
+                    <li>Blog</li>
+                    <li>Contato</li>
+                </ul>
+            </nav>
+        </header>
+        <div>
+            <h1>Aula 1.</h1>
+            <h1>Aula 1.</h1>
+            <span>Texto 1</span>
+            <span>Texto 2</span>
+        </div>
+        <div class="container">
+            <div class="item" id="div1">
+                <h1 class="title1">Hello World</h1>
+                <p>Este é o primeiro!</p>
+                <p>Este é o segundo!</p>
+            </div>
 
-        #div2 .para2 {
-            color: salmon;
-            font-size: 20px;
-        }
-
-        h1 {
-            color: red;
-            font-size: 13px;
-        }
-        .title1 {
-            color: green !important;
-        }
-    </style>
-</head>
-<body>
-    <h1>Aula 1 </h1>
-    <div id="div1">
-        <h1 class="title1">Hello World</h1>
-        <p>Este é o primeiro!</p>
-        <p>Este é o segundo!</p>
-    </div>
-
-    <div id="div2">
-        <h1 class="title1">Hello World</h1>
-        <p class="para2">Este é meu texto!</p>
-    </div>
-    <div>
-        <h1 class="title1">Hello World</h1>
-        <p>Este é meu texto!</p>
-    </div>
-    <div>
-        <h1>Hello World</h1>
-        <p>Este é meu texto!</p>
-    </div>
-    <div>
-        <h1>Hello World</h1>
-        <p>Este é meu texto!</p>
-    </div>
-
-</body>
+            <div class="item" id="div2">
+                <h1 class="title1">Hello World</h1>
+                <p class="para2">Este é meu texto!</p>
+            </div>
+            <div class="item">
+                <h1 class="title1">Hello World</h1>
+                <p>Este é meu texto!</p>
+            </div>
+            <div class="item">
+                <h1>Hello World</h1>
+                <p>Este é meu texto!</p>
+            </div>
+            <div class="item">
+                <h1>Hello World</h1>
+                <p>Este é meu texto!</p>
+            </div>
+        </div>
+    </body>
 </html>
