@@ -1,14 +1,21 @@
 # Softgraf
 ## Curso de desenvolvimento web
 
-Formulário de início
-https://forms.gle/mveQEHj2aPtXu38eA
+Comanda GitHub
 
-"breadcrumbs.enabled": true,
-"editor.lineHeight": 22,
-"editor.tabSize": 4,
-"workbench.activityBar.visible": true,
-"workbench.sideBar.location": "left",
-"workbench.tree.indent": 18,
-"explorer.autoReveal": false,
-"explorer.compactFolders": false
+## copiar repositório online para seu computador
+git clone link_do_repositório
+
+## mandar alteração para o repositório online
+git add -A
+git commit -m "Sua mensagem aqui"
+git push
+
+## criar uma nova branch
+git checkout -b name_branch
+
+## trocar de branch
+git checkout name_branch
+
+## Juntar conteúdo de branchs diferentes
+git merge origin/name_branch
