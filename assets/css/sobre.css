@@ -1,0 +1,25 @@
+.conteudo {
+    width: 300px;
+    padding: 10px;
+    margin: 10px auto;
+    background-color: #fff;
+    text-align: justify;
+}
+
+table, th, td {
+    border: 1px solid #000;
+    border-spacing: 2px;
+}
+
+th, td {
+    padding: 10px;
+}
+
+tr:hover {
+    background: yellow !important;
+    /* font-size: 30px; */
+}
+
+tr:nth-child(odd) {
+    background: #ccc;
+}

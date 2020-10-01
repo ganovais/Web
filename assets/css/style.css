@@ -27,7 +27,7 @@ body {
 .nav {
     text-align: right;
     width: 100%;
-    background: #fff;
+    background: #1d3557;
 }
 
 /* Estilo modificado para funcionar o texto a direita */
@@ -43,32 +43,8 @@ body {
     text-align: right;
 }
 
-@media (max-width: 764px) {
-    .nav {
-        background: red !important;
-    }
-
-    .nav > ul > li{
-        color: #fff
-    }
-}
-
-@media (max-width: 800px) {
-    .nav {
-        background: blue;
-    }
-
-    .nav > ul > li{
-        color: #fff
-    }
-}
-
-@media (min-width: 800px) {
-    .nav {
-        background: pink;
-    }
-
-    .nav > ul > li{
-        color: #fff
-    }
+.nav > ul > li > a {
+    text-decoration: none;
+    color: #f1faee;
+    font-size: 20px;
 }
