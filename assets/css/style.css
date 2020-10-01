@@ -48,3 +48,18 @@ body {
     color: #f1faee;
     font-size: 20px;
 }
+
+.blogs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blog-item {
+    background-color: #a8dadc;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #1d3557;
+    border-radius: 10px;
+    position: relative;
+    width: 300px;
+}
