@@ -7,8 +7,8 @@ Comanda GitHub
 git clone link_do_repositório
 
 ## mandar alteração para o repositório online
-git add -A
-git commit -m "Sua mensagem aqui"
+git add -A  
+git commit -m "Sua mensagem aqui"  
 git push
 
 ## criar uma nova branch
