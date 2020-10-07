@@ -54,3 +54,25 @@
     top: 50%;
     margin-top: -20px;
 }
+
+.filter {
+    box-shadow: 5px 9px 20px 5px #cacaca;
+    padding: 10px;
+}
+
+.filter input {
+    border: none;
+}
+
+.filter input:focus {
+    outline-style: none;
+}
+
+#filter-search {
+    background-color: #E76F51;
+    color: #fff;
+}
+
+.filter-header {
+    box-shadow: 3px 3px 9px #ccc;
+}
