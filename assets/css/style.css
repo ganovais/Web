@@ -1,5 +1,6 @@
 .bg-theme {
     background-color: #264653 !important;
+    color: #fff;
 }
 
 .badge-theme {
@@ -75,4 +76,13 @@
 
 .filter-header {
     box-shadow: 3px 3px 9px #ccc;
+}
+
+.button-theme {
+    background-color: #264653 !important;
+    color: #fff;
+}
+
+.button-theme:hover {
+    color: #fff !important;
 }
