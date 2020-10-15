@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intervalo</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let i=0;
+            const seconds = () => {
+                document.getElementsByTagName('h2')[0].innerHTML = i;
+                i++;
+                if( i >= 20) {
+                    clearInterval(inter)
+                }
+            }
+
+            const inter = setInterval(seconds, 10);
+        })
+    </script>
+</head>
+<body>
+    <h1>Segundos</h1>
+    <h2></h2>
+</body>
+</html>

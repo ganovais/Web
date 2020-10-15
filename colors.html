@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors</title>
+
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const h1 = document.getElementsByTagName('h1')[0];
+            
+            document.querySelector('#red').onclick = function () {
+                h1.innerHTML = "Vermelho";
+                // h1.style.color = 'red';
+                h1.classList.add('red');
+                setTimeout(() => {
+                    h1.classList.remove('red');
+                }, 2000);
+            }
+
+            document.querySelector('#blue').onclick = function () {
+                h1.innerHTML = "Azul";
+                h1.style.color = 'blue';
+            }
+
+            document.querySelector('#green').onclick = function () {
+                h1.innerHTML = "Verde";
+                h1.style.color = 'green';
+            }
+        })
+    </script>
+</head>
+<body>
+    <h1>Hello!</h1>
+    <button class="color-change" id="red">Vermelho</button>
+    <button class="color-change" id="blue">Azul</button>
+    <button class="color-change" id="green">Verde</button>
+</body>
+</html>
