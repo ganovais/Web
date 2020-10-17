@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // document.querySelector('#add')
+
+            let counter=0;
+            if(localStorage.getItem('counter')) {
+                counter = localStorage.getItem('counter');
+                document.getElementsByTagName('h1')[0].innerHTML = counter;
+            }
+            
+            const adicionar = () => {
+                counter++;
+                document.getElementsByTagName('h1')[0].innerHTML = counter;
+                localStorage.setItem('counter', counter);
+            }
+
+            document.getElementById('add').onclick = adicionar;
+
+            document.querySelector('#reset').onclick = () => {
+                localStorage.removeItem('counter');
+                document.getElementsByTagName('h1')[0].innerHTML = 0;
+                counter = 0;
+            }
+        })
+    </script>
+</head>
+<body>
+    <h1>0</h1>
+    <button id="add">Adiciona</button>
+    <button id="reset">Reset</button>
+</body>
+</html>
