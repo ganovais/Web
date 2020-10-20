@@ -16,11 +16,25 @@
             border: 1px solid #ccc;
             cursor: pointer;
         }
+        .searched {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+        }
+        .hide {
+            display: none;
+        }
+        .show {
+            display: block !important;
+        }
     </style>
 </head>
 <body>
     <h1>Blogs</h1>
-    <div class="searched"></div>
+    <div class="searched hide">
+        <button id="fechar">Fechar</button>
+        <div class="content"></div>
+    </div>
     <div class="blogs"></div>
     
     <script src="blog.js"></script>

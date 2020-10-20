@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch("https://api.exchangeratesapi.io/latest?base=USD")
         .then(response => response.json())
         .then(data => {
-            const currency = document.querySelector('#currency').value.toUpperCase();
+            const currency = document.querySelector('#currency').value.toLowerCase();
 
             const rate = data.rates[currency];
             if(rate !== undefined) {

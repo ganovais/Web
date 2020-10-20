@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if(texto == 'NARUTO') {
             document.getElementsByTagName('h3')[0].classList.add('show');
 
+            
             // "afterbegin" - After(depois) the beginning of the element (as the first child)
             // "afterend" - After(depois) the element
             // "beforebegin" - Before(antes) the element
