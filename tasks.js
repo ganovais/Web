@@ -4,8 +4,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if(localStorage.getItem('tasks')) {
         tasks.push(localStorage.getItem('tasks'));
+        tasks = tasks[0].split(',');
+
+        // "1, 2, 3, 4".split(',')
+        // [1, 2, 3 ,4]
+        
+        tasks.map(item => {
+            item = item.split('<li>')
+            item = item[1].split('</li>')
+            
+            const li = document.createElement('li');
+            li.innerHTML = item[0];
+
+            document.querySelector('#tasks').append(li)
+        })
+
     }
-    
 
     document.querySelector('#submit').disabled = true;
 
