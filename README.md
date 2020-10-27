@@ -1,10 +1,31 @@
-# Softgraf  
+# E-softgraf  
 
-## Curso de Desenvolvimento Web
+## 1º Download  
+    - Laragon
+    - https://laragon.org/download/  
+        - Laragon Full  
 
-### Introdução Bootstrap  
-https://getbootstrap.com/docs/4.5/getting-started/introduction/
+## 2º Download  
+    - Composer  
+    - https://getcomposer.org/download/  
 
-### Paleta de cores
-https://coolors.co/264653-2a9d8f-e9c46a-f4a261-e76f51  
-https://coolors.co/e63946-f1faee-a8dadc-457b9d-1d3557
+## 3º Download  
+    - Node Js  
+    - https://nodejs.org/en/  
+    -- LTS
+
+## Instalando Laravel e Criando Projeto  
+    - composer global require laravel/installer  
+    - composer create-project --prefer-dist laravel/laravel="7.*" nome_projeto  
+        - "7.*" está se referindo a versão do laravel  
+
+## Instalando Node_modules dentro do projeto  
+    Ao acessar a pasta do projeto, cd C:\PATH_DO_PROJETO, rodar comando "npm i" para baixar o node  
+
+## Rodando Laravel  
+    Dentro da pasta do projeto, cd C:\PATH_DO_PROJETO, rodar comando para inicializar o laravel  
+    - php artisan serve  
+      
+    Outro meio de ver a aplicação rodando é colocar o projeto dentro do WWW do laragon  
+        - cd C:\laragon\www
+        - No navegador localhost/nome_projeto/public
