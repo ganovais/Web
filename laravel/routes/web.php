@@ -13,4 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () { return view('welcome'); });
+Route::group(['namespace' => 'Site'], function() {
+
+    Route::get('/', 'SiteController@index');
+    Route::get('/produtos', 'SiteController@products');
+    Route::get('/contato', 'SiteController@contact');
+    Route::get('/produto/{slug}', 'SiteController@detail');
+
+});
