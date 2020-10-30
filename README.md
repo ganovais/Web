@@ -29,3 +29,11 @@
     Outro meio de ver a aplicação rodando é colocar o projeto dentro do WWW do laragon  
         - cd C:\laragon\www
         - No navegador localhost/nome_projeto/public
+
+## Rodando Laravel baixado do GIT  
+    - cd laravel
+    - composer install
+    - criar arquivo .env
+    - php artisan key:generate
+    - php artisan serve
+    
