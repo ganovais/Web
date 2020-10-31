@@ -19,5 +19,7 @@ Route::group(['namespace' => 'Site'], function() {
     Route::get('/produtos', 'SiteController@products');
     Route::get('/contato', 'SiteController@contact');
     Route::get('/produto/{slug}', 'SiteController@detail');
+    Route::get('/login', 'SiteController@login');
+    Route::get('wishlist', 'SiteController@wishlist');
 
 });

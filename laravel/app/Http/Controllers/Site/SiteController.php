@@ -28,4 +28,14 @@ class SiteController extends Controller
         // dd($slug);
         return view('site.products.detail.index');
     }
+
+    public function login()
+    {
+        return view('site.auth.login');
+    }
+
+    public function wishlist()
+    {
+        return view('site.wishlist.index');
+    }
 }

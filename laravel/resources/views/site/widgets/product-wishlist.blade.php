@@ -2,7 +2,7 @@
     <div class="product">
         <div class="product-header">
             <div class="product-subheader">
-                <i class="p-2 fas fa-heart"></i>
+                <i class="p-2 remove-product-wishlist fas fa-trash-alt"></i>
                 <span class="badge badge-theme">Categoria</span>
             </div>
             <a href="{{ url('produto/doritos') }}">

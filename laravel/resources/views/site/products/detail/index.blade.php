@@ -9,7 +9,7 @@ Mais sobre o produto - meu produto
 <div class="container mt-5 mb-5">
     <div class="row mb-5">
         <div class="col-sm-12 col-md-4">
-            <img class="product-img-detail img-fluid" src="./assets/images/products/coca.jpeg">
+            <img class="product-img-detail img-fluid" src="{{ asset('assets/images/products/3.jpeg') }}">
         </div>
 
         <div class="col-sm-12 col-md-8">
@@ -38,77 +38,11 @@ Mais sobre o produto - meu produto
             <h2>Produtos relacionados</h2>
         </div>
 
+        @for($i=1; $i<=4; $i++)
         <div class="col-lg-3 col-md-4 col-sm-12 mb-4">
-            <div class="product">
-                <div class="product-header">
-                    <div class="product-subheader">
-                        <i class="p-2 fas fa-heart"></i>
-                        <span class="badge badge-theme">Categoria</span>
-                    </div>
-                    <img class="img-fluid" src="./assets/images/products/chocolate.jpg" />
-                </div>
-
-                <div class="product-footer">
-                    <p class="m-0">Chocolate</p>
-                    <p class="pr-3 m-0"><b>R$ 5,00</b></p>
-                    <i class="fas fa-cart-plus"></i>
-                </div>
-            </div>
+            @include('site.widgets.product', ['index' => $i])
         </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-12 mb-4">
-            <div class="product">
-                <div class="product-header">
-                    <div class="product-subheader">
-                        <i class="p-2 fas fa-heart"></i>
-                        <span class="badge badge-theme">Categoria</span>
-                    </div>
-                    <img class="img-fluid" src="./assets/images/products/trigo.webp" />
-                </div>
-
-                <div class="product-footer">
-                    <p class="m-0">Trigo</p>
-                    <p class="pr-3 m-0"><b>R$ 3,00</b></p>
-                    <i class="fas fa-cart-plus"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-12 mb-4">
-            <div class="product">
-                <div class="product-header">
-                    <div class="product-subheader">
-                        <i class="p-2 fas fa-heart"></i>
-                        <span class="badge badge-theme">Categoria</span>
-                    </div>
-                    <img class="img-fluid" src="./assets/images/products/coca.jpeg" />
-                </div>
-
-                <div class="product-footer">
-                    <p class="m-0">Coca</p>
-                    <p class="pr-3 m-0"><b>R$ 7,00</b></p>
-                    <i class="fas fa-cart-plus"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-12 mb-4">
-            <div class="product">
-                <div class="product-header">
-                    <div class="product-subheader">
-                        <i class="p-2 fas fa-heart"></i>
-                        <span class="badge badge-theme">Categoria</span>
-                    </div>
-                    <img class="img-fluid" src="./assets/images/products/oreo.jpg" />
-                </div>
-
-                <div class="product-footer">
-                    <p class="m-0">Oreo</p>
-                    <p class="pr-3 m-0"><b>R$ 3,00</b></p>
-                    <i class="fas fa-cart-plus"></i>
-                </div>
-            </div>
-        </div>
+        @endfor
 
     </div>
 

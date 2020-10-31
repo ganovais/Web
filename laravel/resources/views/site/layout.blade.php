@@ -18,6 +18,11 @@
             <div class="toaster-content"></div>
             <i class="fas fa-times"></i>
         </div>
+
+        <div class="toaster-wishlist d-none">
+            <p>Produto removido com sucesso</p>
+            <i class="fas fa-times"></i>
+        </div>
         
         @include('site.widgets.header')
 
@@ -29,14 +34,14 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="./assets/images/banners/banner1.jpg" alt="First slide" />
+                        <img class="d-block w-100" src="{{ asset('assets/images/banners/banner1.jpg') }}" alt="First slide" />
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Conheça nossa loja</h5>
                             <p>Produtos organicos</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="./assets/images/banners/banner2.jpg" alt="Second slide" />
+                        <img class="d-block w-100" src="{{ asset('assets/images/banners/banner2.jpg') }}" alt="Second slide" />
                         <div class="carousel-caption d-none d-md-block">
                             <h5>A melhor da região</h5>
                             <p>Venha conhecer</p>
@@ -56,11 +61,13 @@
 
         @yield('content')
 
+        @include('site.widgets.footer')
+
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-        <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="./assets/js/principal.js"></script>
+        <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/js/principal.js') }}"></script>
     </body>
 </html>
