@@ -254,3 +254,12 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+START TRANSACTION;
+
+USE `esoftgraf`;
+INSERT INTO `esoftgraf`.`config` (`key`, `value`) VALUES (address, 'Rua Santana, 820 - centro');
+INSERT INTO `esoftgraf`.`config` (`key`, `value`) VALUES (email, 'cursos@softgraf.com');
+INSERT INTO `esoftgraf`.`config` (`key`, `value`) VALUES (phone, '(42) 3028-0449');
+
+COMMIT;
