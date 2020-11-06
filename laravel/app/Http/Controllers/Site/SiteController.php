@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Http\Controllers\Controller;
+use App\Modules\Config;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SiteController extends Controller
 {
@@ -19,7 +20,9 @@ class SiteController extends Controller
 
     public function contact()
     {
-        return view('site.contact.index');
+        $config = Config::all()->pluck('value', 'key')->toArray();
+        // dd($config);
+        return view('site.contact.index', compact('config'));
     }
 
     public function detail($slug)

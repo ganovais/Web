@@ -22,7 +22,9 @@ Entre em contato
                 <i class="fas fa-envelope"></i>
                 <h2 class="text-orange">E-mails</h2>
                 <p>
-                    <a href="mailto:gabriel@email.com.br"> gabriel@email.com.br </a>
+                    <a href="mailto:gabriel@email.com.br">
+                        {{ $config['email'] }}
+                    </a>
                 </p>
             </div>
         </div>
@@ -32,7 +34,9 @@ Entre em contato
                 <i class="fas fa-phone-alt"></i>
                 <h2 class="text-orange">Telefones</h2>
                 <p>
-                    <a href="tel:+554212345678"> (42) 1234-5678 </a>
+                    <a href="tel:+55{{ StringHelper::cleanNumber(Value::get('phone')) }}"> 
+                    {{ Value::get('phone') }}
+                    </a>
                 </p>
             </div>
         </div>
