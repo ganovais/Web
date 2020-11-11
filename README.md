@@ -38,9 +38,9 @@
     - php artisan serve  
 
 
+RENAME TABLE `config` TO `configs`;
 
-    INSERT INTO `configs` (`key`, `value`)
-VALUES
+INSERT INTO `configs` (`key`, `value`) VALUES
 	('email','softgraf@gmail.com'),
 	('address','Rua Santana, 123'),
 	('phone','(12) 34567-8910');
