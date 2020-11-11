@@ -35,5 +35,13 @@
     - composer install
     - criar arquivo .env
     - php artisan key:generate
-    - php artisan serve
+    - php artisan serve  
+
+
+
+    INSERT INTO `configs` (`key`, `value`)
+VALUES
+	('email','softgraf@gmail.com'),
+	('address','Rua Santana, 123'),
+	('phone','(12) 34567-8910');
     
