@@ -4,14 +4,13 @@
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{{ asset('/assets/bootstrap/css/bootstrap.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}" />
         <link rel="stylesheet" href="{{ asset('/assets/fontawesome/css/all.min.css') }}" />
         <link rel="icon" href="{{ asset('/assets/logo/icon.png') }}" />
         <title>@yield('title')</title>
-
         @yield('style')
     </head>
     <body>
@@ -32,6 +31,5 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('assets/js/principal.js') }}"></script>
     </body>
 </html>

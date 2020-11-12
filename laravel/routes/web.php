@@ -23,3 +23,7 @@ Route::group(['namespace' => 'Site'], function() {
     Route::get('wishlist', 'SiteController@wishlist');
 
 });
+
+
+Auth::routes(['verify' => true]);
+Route::get('/home', 'HomeController@index')->name('home');
