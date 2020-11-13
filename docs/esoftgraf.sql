@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `esoftgraf`.`users` (
   `email` VARCHAR(255) NOT NULL,
   `email_verified_at` TIMESTAMP(1) NULL,
   `password` VARCHAR(255) NOT NULL,
+  `is_customer` TINYINT(1) UNSIGNED NOT NULL DEFAULT 1,
   `remember_token` VARCHAR(100) NULL,
   `created_at` TIMESTAMP(1) NULL,
   `updated_at` TIMESTAMP(1) NULL,
@@ -229,10 +230,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `esoftgraf`.`config`
+-- Table `esoftgraf`.`configs`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `esoftgraf`.`config` (
-  `key` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `esoftgraf`.`configs` (
+  `key` VARCHAR(255) NOT NULL,
   `value` TEXT(1) NULL)
 ENGINE = InnoDB;
 
