@@ -25,5 +25,13 @@ Route::group(['namespace' => 'Site'], function() {
 });
 
 
+Route::group(['namespace' => 'System', 'middleware' => 'auth', 'prefix' => 'sistema'], function() {
+    Route::get('/', 'SystemController@dashboard');
+});
+
+Route::group(['middleware' => 'auth', 'prefix' => 'sistema'], function() {
+    require('web/paymentMethod.php');
+});
+
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
