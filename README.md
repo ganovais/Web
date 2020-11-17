@@ -38,4 +38,9 @@
     - php artisan serve  
 
 
-https://github.com/colorlibhq/AdminLTE
+## ADMIN TEMPLATE  
+    - https://github.com/colorlibhq/AdminLTE  
+
+## PLUGINS  
+    - INPUT MASK: https://github.com/RobinHerbots/Inputmask  
+    - TOASTR: https://github.com/CodeSeven/toastr  

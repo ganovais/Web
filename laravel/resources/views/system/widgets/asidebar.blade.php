@@ -54,9 +54,16 @@
                 </li>
 
                 <li class="nav-item menu-open">
-                    <a href="#" class="nav-link">
+                    <a href="{{ url('sistema/categories') }}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         Categorias
+                    </a>
+                </li>
+
+                <li class="nav-item menu-open">
+                    <a href="{{ url('sistema/status') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        Status
                     </a>
                 </li>
 
