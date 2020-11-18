@@ -15,7 +15,8 @@ class PaymentMethodController extends Controller
     
     public function index()
     {
-        return view('system.payment-method.list');
+        $payment_methods = $this->payment_method_service->model->get();
+        return view('system.payment-method.list', compact('payment_methods'));
     }
 
     public function create()
@@ -23,12 +24,44 @@ class PaymentMethodController extends Controller
         return view('system.payment-method.create');
     }
 
+    public function edit()
+    {
+        return view('system.payment-method.create');
+    }
+
+    public function show($id)
+    {
+        return response()->json([
+            'error' => false,
+            'payment_method' => $this->payment_method_service->model->findOrFail($id),
+        ], 200);
+    }
+
     public function store(PaymentMethodRequest $request)
     {
         return response()->json([
             'error' => false,
-            'payment-method' => $this->payment_method_service->store($request->toArray()),
+            'payment_method' => $this->payment_method_service->store($request->toArray()),
             'message' => 'Cadastrado com sucesso',
+        ], 200);
+    }
+
+
+    public function update(PaymentMethodRequest $request, $id)
+    {
+        return response()->json([
+            'error' => false,
+            'payment_method' => $this->payment_method_service->update($request->toArray(), $id),
+            'message' => 'Editado com sucesso',
+        ], 200);
+    }
+
+    public function destroy($id)
+    {
+        return response()->json([
+            'error' => false,
+            'deleted' => $this->payment_method_service->destroy($id),
+            'message' => 'Deletado com sucesso',
         ], 200);
     }
 }

@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
 
+    <link rel="icon" href="{{ asset('/assets/logo/icon.png') }}" />
     <link rel="stylesheet" href="{{ asset('/assets/fontawesome/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('system/css/adminlte.min.css') }}">
     <link href="{{ asset('system/plugins/toastr/toastr.css') }}" rel="stylesheet" />
