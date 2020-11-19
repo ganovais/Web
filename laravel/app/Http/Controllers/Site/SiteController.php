@@ -5,9 +5,15 @@ namespace App\Http\Controllers\Site;
 use App\Modules\Config;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Requests\ContactRequest;
+use App\Services\ContactService;
 
 class SiteController extends Controller
 {
+    public function __construct(ContactService $contact_service)
+    {
+        $this->contact_service = $contact_service;
+    }
     public function index()
     {
         return view('site.home.index');
@@ -40,5 +46,13 @@ class SiteController extends Controller
     public function wishlist()
     {
         return view('site.wishlist.index');
+    }
+
+    public function send(ContactRequest $request)
+    {
+        return response()->json([
+            'error' => false,
+            'message' => $this->contact_service->send($request->toArray()),
+        ]);
     }
 }

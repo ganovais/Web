@@ -4,20 +4,29 @@
     </a>
 
     <div class="sidebar">
-        
+
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src="{{ asset('system/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">Harry Potter</a>
+                <a href="{{ route('logout') }}" 
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    Sair
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
         </div>
 
 
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                
+
                 <li class="nav-item menu-open">
                     <a href="{{ url('/sistema') }}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>

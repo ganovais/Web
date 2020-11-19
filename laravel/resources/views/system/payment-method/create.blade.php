@@ -108,15 +108,15 @@
         })
         .then(response => response.json())
         .then(data => {
-            if(!id) {
-                window.location.href = BASE_URL + 'payment-methods';
+            if(!id && (typeof data.error !== 'undefined' && !data.error)) {
+                window.location.href = BASE_URL + 'status';
             }
             if(typeof data.error !== 'undefined' && !data.error) {
                 toastr.success(data.message);
                 return;
             }
 
-            toastr.success(data);
+            toastr.error(data);
 
         }).catch(error => {
             console.log(error);

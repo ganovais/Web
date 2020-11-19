@@ -23,7 +23,7 @@ class RootRequest extends FormRequest
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(
-            response()->json($validator->errors()->first())
+            response()->json($validator->errors()->first(), 422)
         );
     }
 

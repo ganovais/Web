@@ -5,11 +5,11 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Métodos de pagamento</h1>
+                <h1>Categorias</h1>
             </div>
 
             <div class="col-sm-6 text-right">
-                <a class="btn btn-primary" href="{{ url('/sistema/payment-methods/create') }}">
+                <a class="btn btn-primary" href="{{ url('/sistema/categories/create') }}">
                     Cadastrar
                     <i class="fas fa-plus"></i>
                 </a>
@@ -29,21 +29,21 @@
                             <thead>
                                 <tr>
                                     <th col="1">ID</th>
-                                    <th>Nome</th>
+                                    <th>TÍTULO</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($payment_methods as $payment_method)
+                                @forelse($categories as $category)
                                 <tr>
-                                    <td>{{ $payment_method->id }}</td>
-                                    <td>{{ $payment_method->name }}</td>
+                                    <td>{{ $category->id }}</td>
+                                    <td>{{ $category->title }}</td>
                                     <td class="text-right">
-                                        <a href="{{ url('sistema/payment-methods/' . $payment_method->id . '/edit') }}">
+                                        <a href="{{ url('sistema/categories/' . $category->id . '/edit') }}">
                                             <i class="fas fa-pencil-alt mr-3"></i>
                                         </a>
 
-                                        <a href="#" data-id="{{ $payment_method->id }}" class="delete">
+                                        <a href="#" data-id="{{ $category->id }}" class="delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -51,7 +51,7 @@
                                 @empty
                                 <tr>
                                     <td>
-                                        <h4>Não há métodos de pagamento ainda!!</h4>
+                                        <h4>Não há categorias ainda!!</h4>
                                     </td>
                                 </tr>
                                 @endforelse
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 function destroy(id) {
-    fetch(`${BASE_URL}payment-methods/${id}`, {
+    fetch(`${BASE_URL}categories/${id}`, {
         method: 'DELETE',
         headers: {
             "Content-Type": 'application/json',
