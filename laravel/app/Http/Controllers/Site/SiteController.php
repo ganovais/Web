@@ -24,6 +24,21 @@ class SiteController extends Controller
         return view('site.products.index');
     }
 
+    public function cart()
+    {
+        return view('site.cart.index');
+    }
+
+    public function checkout()
+    {
+        return view('site.checkout.index');
+    }
+
+    public function thanks()
+    {
+        return view('site.checkout.thanks');
+    }
+
     public function contact()
     {
         $config = Config::all()->pluck('value', 'key')->toArray();

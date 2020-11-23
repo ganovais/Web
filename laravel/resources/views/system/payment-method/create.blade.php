@@ -109,7 +109,7 @@
         .then(response => response.json())
         .then(data => {
             if(!id && (typeof data.error !== 'undefined' && !data.error)) {
-                window.location.href = BASE_URL + 'status';
+                window.location.href = BASE_URL + 'payment-methods';
             }
             if(typeof data.error !== 'undefined' && !data.error) {
                 toastr.success(data.message);

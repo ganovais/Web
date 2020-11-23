@@ -3,7 +3,11 @@
 ## 1º Download  
     - Laragon
     - https://laragon.org/download/  
-        - Laragon Full  
+        - Laragon Full
+    OU
+    - Xampp
+    - https://www.apachefriends.org/download.html
+        - PHP 7.4
 
 ## 2º Download  
     - Composer  

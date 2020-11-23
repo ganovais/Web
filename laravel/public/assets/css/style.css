@@ -254,3 +254,20 @@ footer a{
 footer a:hover{
     color: #ccc;
 }
+
+.badge-over-img {
+    position: absolute;
+}
+
+.card
+{
+    box-shadow: 1px 6px 12px 0px #c1c1c1;
+    border: none;
+    padding: 10px;
+
+}
+
+.card-cart {
+    margin-top: -90px;
+    box-shadow: -5px 5px 16px #b5b0b0c4;
+}
