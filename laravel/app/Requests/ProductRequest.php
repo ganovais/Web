@@ -12,14 +12,20 @@ class ProductRequest extends RootRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'category_id' => 'required',
         ];
     }
 
     public function attributeNames()
     {
         return [
-            'name' => 'Nome',
+            'title' => 'TÍTULO',
+            'description' => 'DESCRIÇÃO',
+            'price' => 'PREÇO',
+            'category_id' => 'CATEGORIA',
         ];
     }
 

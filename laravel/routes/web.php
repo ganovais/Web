@@ -37,6 +37,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'sistema'], function() {
     require('web/paymentMethod.php');
     require('web/category.php');
     require('web/status.php');
+    require('web/products.php');
+    
 });
 
 Auth::routes(['verify' => true]);

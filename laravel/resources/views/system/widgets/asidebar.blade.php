@@ -35,7 +35,7 @@
                 </li>
 
                 <li class="nav-item menu-open">
-                    <a href="#" class="nav-link">
+                    <a href="{{ url('sistema/products') }}" class="nav-link">
                         <i class="nav-icon fas fa-box"></i>
                         Produtos
                     </a>
