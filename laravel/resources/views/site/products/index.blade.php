@@ -22,27 +22,14 @@ Conheça nossos produtos
                     </div>
                     <div class="filter-categories">
                         <h4>Categorias</h4>
+                        @foreach($categories as $category)
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="cate1" />
-                            <label class="form-check-label" for="cate1"> Categoria </label>
+                            <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="{{ $category->id }}" name="category"/>
+                            <label class="form-check-label" for="{{ $category->id }}"> {{ $category->title }} </label>
                         </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="cate2" />
-                            <label class="form-check-label" for="cate2"> Categoria </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="cate3" />
-                            <label class="form-check-label" for="cate3"> Categoria </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="cate4" />
-                            <label class="form-check-label" for="cate4"> Categoria </label>
-                        </div>
+                        @endforeach
                     </div>
-                    <button class="mt-3 btn btn-block button-theme">
+                    <button type="submit" class="mt-3 btn btn-block button-theme">
                         Pesquisar
                     </button>
                 </form>
@@ -51,11 +38,11 @@ Conheça nossos produtos
 
         <div class="col-md-9 col-sm-12">
             <div class="row">
-                @for($i=1; $i<=4; $i++)
+                @foreach($products as $product)
                 <div class="col-lg-4 col-md-6 col-6 mb-4">
-                    @include('site.widgets.product', ['index' => $i])
+                    @include('site.widgets.product', ['product' => $product])
                 </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>

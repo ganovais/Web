@@ -101,6 +101,7 @@
             if (id) {
                 get(id);
             }
+            
         }
 
         document.querySelector('#save').onsubmit = () => {
@@ -118,7 +119,7 @@
             .then(response => response.json())
             .then(data => {
                 if (!data.error) {
-                    title_input.value = data.product.title;
+                    $('#title_input').val(data.product.title);
                     price_input.value = data.product.price;
                     category_input.value = data.product.category_id;
                     description_input.value = data.product.description;

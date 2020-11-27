@@ -6,14 +6,19 @@ use App\Modules\Config;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Requests\ContactRequest;
+use App\Services\CategoryService;
 use App\Services\ContactService;
+use App\Services\ProductService;
 
 class SiteController extends Controller
 {
-    public function __construct(ContactService $contact_service)
+    public function __construct(ContactService $contact_service, CategoryService $category_service, ProductService $product_service)
     {
         $this->contact_service = $contact_service;
+        $this->category_service = $category_service;
+        $this->product_service = $product_service;
     }
+
     public function index()
     {
         return view('site.home.index');
@@ -21,7 +26,9 @@ class SiteController extends Controller
 
     public function products()
     {
-        return view('site.products.index');
+        $categories = $this->category_service->model->get();
+        $products = $this->product_service->model->with('category', 'image')->get();
+        return view('site.products.index', compact('categories', 'products'));
     }
 
     public function cart()
@@ -48,9 +55,9 @@ class SiteController extends Controller
 
     public function detail($slug)
     {
-        // info($slug);
-        // dd($slug);
-        return view('site.products.detail.index');
+        $product = $this->product_service->model->where('slug', $slug)->first();
+        $products = $this->product_service->model->with('category', 'image')->get()->take(4);
+        return view('site.products.detail.index', compact('product', 'products'));
     }
 
     public function login()

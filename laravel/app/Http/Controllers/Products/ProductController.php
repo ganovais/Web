@@ -52,4 +52,14 @@ class ProductController extends Controller
         ]);
     }
 
+    public function update(ProductRequest $request, $id)
+    {
+        info($request);
+        return response()->json([
+            'error' => false,
+            'product' => $this->product_service->update($request->toArray(), $id),
+            'message' => 'Alterado com sucesso'
+        ]);
+    }
+
 }

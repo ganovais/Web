@@ -38,11 +38,11 @@ Mais sobre o produto - meu produto
             <h2>Produtos relacionados</h2>
         </div>
 
-        @for($i=1; $i<=4; $i++)
+        @foreach($products as $product)
         <div class="col-lg-3 col-md-4 col-sm-12 mb-4">
-            @include('site.widgets.product', ['index' => $i])
+            @include('site.widgets.product', ['product' => $product])
         </div>
-        @endfor
+        @endforeach
 
     </div>
 
