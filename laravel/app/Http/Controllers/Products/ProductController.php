@@ -29,10 +29,11 @@ class ProductController extends Controller
         return view('system.products.create', compact('categories'));
     }
 
-    public function edit()
+    public function edit($id)
     {
         $categories = $this->category_service->model->get();
-        return view('system.products.create', compact('categories'));
+        $product = $this->product_service->model->findOrFail($id);
+        return view('system.products.create', compact('categories', 'product'));
     }
 
     public function show($id)
@@ -54,7 +55,6 @@ class ProductController extends Controller
 
     public function update(ProductRequest $request, $id)
     {
-        info($request);
         return response()->json([
             'error' => false,
             'product' => $this->product_service->update($request->toArray(), $id),

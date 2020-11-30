@@ -25,7 +25,7 @@ class ProductService
             
             $name = $_FILES['image']['name'];
             $path = './site/uploads/products';
-            if(!file_exists($path)) File::makeDirectory($path, 0777, true);
+            if(!file_exists($path)) File::makeDirectory($path, 777, true);
 
             $output_file = $path . '/' . $name;
             $data['image']->move($path, $output_file);
@@ -33,7 +33,7 @@ class ProductService
             $model = $this->model->create($data);
 
             $image = [
-                'path' => $output_file,
+                'path' => '/site/uploads/products' . '/' . $name,
                 'imageable_id' => $model->id,
                 'imageable_type' => 'products',
                 'category' => 'image'
@@ -57,7 +57,7 @@ class ProductService
 
             $model = $this->model->findOrFail($id);
 
-            // $data['slug'] = Str::slug($data['title'], '-');
+            $data['slug'] = Str::slug($data['title'], '-');
 
             $model->update($data);
 

@@ -13,11 +13,13 @@ E-Softgraf: Sua loja virtual
         </div>
 
         <div class="col-12 text-left mt-3">
-            <span class="badge badge-theme">Frutas</span>
-            <span class="badge badge-theme">Legumes</span>
-            <span class="badge badge-theme">Bolachas</span>
-            <span class="badge badge-theme">Carnes</span>
-            <span class="badge badge-theme">Refrigerantes</span>
+            @foreach($categories as $category)
+            <span class="badge badge-theme">
+                <a class="text-light" href="{{ url('produtos?category=' . $category->id) }}">
+                {{ $category->title }}
+                </a>
+            </span>
+            @endforeach
         </div>
     </div>
 
@@ -28,11 +30,11 @@ E-Softgraf: Sua loja virtual
         </div>
 
 
-        @for($i=1; $i<=4; $i++)
+        @foreach($products as $product)
         <div class="col-lg-3 col-md-4 col-6 mb-4">
-            @include('site.widgets.product', ['index' => $i])
+            @include('site.widgets.product', ['product' => $product])
         </div>
-        @endfor
+        @endforeach
 
     </div>
 </div>

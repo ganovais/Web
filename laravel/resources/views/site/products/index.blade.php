@@ -12,7 +12,7 @@ Conheça nossos produtos
                 <form>
                     <div class="filter-header">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Pesquisar..." />
+                            <input type="text" class="form-control" placeholder="Pesquisar..." name="title" />
                             <div class="input-group-append">
                                 <span class="input-group-text" id="filter-search">
                                     <i class="fas fa-search"></i>
@@ -24,7 +24,7 @@ Conheça nossos produtos
                         <h4>Categorias</h4>
                         @foreach($categories as $category)
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="{{ $category->id }}" name="category"/>
+                            <input class="form-check-input" type="radio" value="{{ $category->id }}" id="{{ $category->id }}" name="category"/>
                             <label class="form-check-label" for="{{ $category->id }}"> {{ $category->title }} </label>
                         </div>
                         @endforeach

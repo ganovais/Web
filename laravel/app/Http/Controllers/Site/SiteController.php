@@ -21,13 +21,26 @@ class SiteController extends Controller
 
     public function index()
     {
-        return view('site.home.index');
+        $products = $this->product_service->model->with('category', 'image')->get()->take(4);
+        $categories = $this->category_service->model->get();
+        return view('site.home.index', compact('products', 'categories'));
     }
 
-    public function products()
+    public function products(Request $request)
     {
         $categories = $this->category_service->model->get();
-        $products = $this->product_service->model->with('category', 'image')->get();
+        $products = $this->product_service->model->with('category', 'image');
+
+        if(isset($request->category)) {
+            $products = $products->where('category_id', $request->category);
+        }
+
+        if(isset($request->title)) {
+            $products = $products->where('title', 'LIKE', '%' . $request->title . '%');
+        }
+
+        $products = $products->get();
+
         return view('site.products.index', compact('categories', 'products'));
     }
 
@@ -56,7 +69,7 @@ class SiteController extends Controller
     public function detail($slug)
     {
         $product = $this->product_service->model->where('slug', $slug)->first();
-        $products = $this->product_service->model->with('category', 'image')->get()->take(4);
+        $products = $this->product_service->model->with('category', 'image')->where('slug', '<>', $slug)->get()->take(4);
         return view('site.products.detail.index', compact('product', 'products'));
     }
 

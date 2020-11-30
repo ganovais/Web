@@ -49,7 +49,8 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="name">Imagem</label>
-                                        <input type="file" class="form-control" name="image">
+                                        <input type="file" class="form-control" name="image" id="image_input">
+                                        <img id="product_image" src="" width="200">
                                     </div>
                                 </div>
 
@@ -87,10 +88,12 @@
 
 <script type="text/javascript">
     const BASE_URL = '{{ url('/') }}/sistema/';
+    const PATH_URL = '{{ url('/') }}';
     let title_input = document.querySelector('#title_input');
     let price_input = document.querySelector('#price_input');
     let category_input = document.querySelector('#category_input');
     let description_input = document.querySelector('#description_input');
+    let image_input = document.querySelector('#image_input');
 
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -123,6 +126,8 @@
                     price_input.value = data.product.price;
                     category_input.value = data.product.category_id;
                     description_input.value = data.product.description;
+                    // Added and change './' to '/' in table images collunm path DB
+                    document.querySelector('#product_image').src = PATH_URL + data.product.image.path;
 
                     document.querySelector('#title').innerHTML = 'Editando - ' + data.product.title;
                 }
@@ -134,18 +139,20 @@
     function storeOrUpdate(id) {
         let url = `${BASE_URL}products`;
         let method = 'POST';
+
         if (id) {
             url = `${BASE_URL}products/` + id;
-            method = 'PUT';
+            method = 'POST';
         }
 
         $.ajaxSetup({
             headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
             }
-        })
+        });
 
-        var formData = new FormData(document.querySelector('#save'));
+
+        var formData = new FormData($('form#save')[0]);
 
         $.ajax({
             url: url,
@@ -168,6 +175,7 @@
             cache: false,
             contentType: false,
             processData: false
+            
         })
 
         return false;
