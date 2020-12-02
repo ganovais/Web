@@ -9,6 +9,7 @@ use App\Requests\ContactRequest;
 use App\Services\CategoryService;
 use App\Services\ContactService;
 use App\Services\ProductService;
+use Illuminate\Support\Facades\Auth;
 
 class SiteController extends Controller
 {
@@ -57,6 +58,17 @@ class SiteController extends Controller
     public function thanks()
     {
         return view('site.checkout.thanks');
+    }
+
+    public function painel()
+    {
+        $user = Auth::user();
+        return view('site.painel.index', compact('user'));
+    }
+
+    public function orders()
+    {
+        return view('site.orders.index');
     }
 
     public function contact()

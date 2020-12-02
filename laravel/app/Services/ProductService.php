@@ -23,12 +23,7 @@ class ProductService
 
             $data['slug'] = Str::slug($data['title'], '-');
             
-            $name = $_FILES['image']['name'];
-            $path = './site/uploads/products';
-            if(!file_exists($path)) File::makeDirectory($path, 777, true);
-
-            $output_file = $path . '/' . $name;
-            $data['image']->move($path, $output_file);
+            $this->save_file($_FILES, $data);
 
             $model = $this->model->create($data);
 
@@ -58,6 +53,29 @@ class ProductService
             $model = $this->model->findOrFail($id);
 
             $data['slug'] = Str::slug($data['title'], '-');
+
+            if(!empty($_FILES['image']['name'])) {
+                $image = $model->image;
+                $path = './site/uploads/products/';
+                $name_arr = explode('/', $image->path);
+                
+                if(file_exists($path . $name_arr[4]) && $name_arr[4] != '') {
+                    unlink($path . $name_arr[4]);
+                }
+                $this->save_file($_FILES, $data);
+
+                $image->delete();
+
+                $image = [
+                    'path' => '/site/uploads/products' . '/' . $_FILES['image']['name'],
+                    'imageable_id' => $model->id,
+                    'imageable_type' => 'products',
+                    'category' => 'image'
+                ];
+
+                $this->image_model->create($image);
+
+            }
 
             $model->update($data);
 
@@ -100,5 +118,14 @@ class ProductService
         }
 
         return true;
+    }
+
+    public function save_file($file, $data) {
+        $name = $file['image']['name'];
+        $path = './site/uploads/products';
+        if(!file_exists($path)) File::makeDirectory($path, 777, true);
+
+        $output_file = $path . '/' . $name;
+        $data['image']->move($path, $output_file);
     }
 }

@@ -165,6 +165,7 @@
                 }
                 if (typeof data.error !== 'undefined' && !data.error) {
                     toastr.success(data.message);
+                    get(id);
                     return;
                 }
             },

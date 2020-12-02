@@ -11,12 +11,27 @@ class ProductRequest extends RootRequest
 
     public function rules()
     {
-        return [
+
+        $rules = [
             'title' => 'required',
-            'description' => 'required',
             'price' => 'required',
             'category_id' => 'required',
+            'description' => 'required',
         ];
+
+        $id = $this->segment(3);
+
+        if(empty($id)) {
+            $image = [
+                'image' => 'required',
+            ];
+        } else {
+            $image = [
+                'image' => 'nullable',
+            ];
+        }
+
+        return array_merge($rules, $image);
     }
 
     public function attributeNames()
@@ -26,6 +41,7 @@ class ProductRequest extends RootRequest
             'description' => 'DESCRIÇÃO',
             'price' => 'PREÇO',
             'category_id' => 'CATEGORIA',
+            'image' => 'IMAGEM'
         ];
     }
 

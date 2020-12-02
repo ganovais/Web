@@ -25,15 +25,17 @@ Route::group(['namespace' => 'Site'], function() {
     Route::get('/cart', 'SiteController@cart');
     Route::get('/checkout', 'SiteController@checkout');
     Route::get('/obrigado', 'SiteController@thanks');
+    Route::get('/painel', 'SiteController@painel');
+    Route::get('/pedidos', 'SiteController@orders');
 
 });
 
 
-Route::group(['namespace' => 'System', 'middleware' => 'auth', 'prefix' => 'sistema'], function() {
+Route::group(['namespace' => 'System', 'middleware' => ['auth', 'is_customer'], 'prefix' => 'sistema'], function() {
     Route::get('/', 'SystemController@dashboard');
 });
 
-Route::group(['middleware' => 'auth', 'prefix' => 'sistema'], function() {
+Route::group(['middleware' => ['auth', 'is_customer'], 'prefix' => 'sistema'], function() {
     require('web/paymentMethod.php');
     require('web/category.php');
     require('web/status.php');
