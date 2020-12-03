@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Relation::morphMap([
             'products' => 'App\Modules\Product',
+            'banners' => 'App\Modules\Banner',
         ]);
     }
 }

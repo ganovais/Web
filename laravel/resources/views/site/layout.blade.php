@@ -34,20 +34,17 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{ asset('assets/images/banners/banner1.jpg') }}" alt="First slide" />
+
+                    @foreach($banners as $k => $banner)
+                    <div class="carousel-item {{ $k == 0 ? 'active' : '' }}">
+                        <img class="d-block w-100" src="{{ asset($banner->image->path) }}" alt="First slide" />
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Conheça nossa loja</h5>
-                            <p>Produtos organicos</p>
+                            <h5>{{ $banner->title }}</h5>
+                            <p>{{ $banner->description }}</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ asset('assets/images/banners/banner2.jpg') }}" alt="Second slide" />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>A melhor da região</h5>
-                            <p>Venha conhecer</p>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

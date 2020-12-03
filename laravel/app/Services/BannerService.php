@@ -3,14 +3,13 @@
 namespace App\Services;
 
 use App\Modules\Image;
-use App\Modules\Product;
-use Illuminate\Support\Str;
+use App\Modules\Banner;
 use Illuminate\Support\Facades\DB;
 use File;
 
-class ProductService
+class BannerService
 {
-    public function __construct(Product $model, Image $image_model)
+    public function __construct(Banner $model, Image $image_model)
     {
         $this->model = $model;
         $this->image_model = $image_model;
@@ -21,18 +20,16 @@ class ProductService
         try {
             DB::beginTransaction();
 
-            $data['slug'] = Str::slug($data['title'], '-');
             
             $this->save_file($_FILES, $data);
-
             $model = $this->model->create($data);
 
             $name = $_FILES['image']['name'];
 
             $image = [
-                'path' => '/site/uploads/products' . '/' . $name,
+                'path' => '/site/uploads/banners' . '/' . $name,
                 'imageable_id' => $model->id,
-                'imageable_type' => 'products',
+                'imageable_type' => 'banners',
                 'category' => 'image'
             ];
 
@@ -54,24 +51,22 @@ class ProductService
 
             $model = $this->model->findOrFail($id);
 
-            $data['slug'] = Str::slug($data['title'], '-');
-
             if(!empty($_FILES['image']['name'])) {
                 $image = $model->image;
-                $path = './site/uploads/products/';
+                $path = './site/uploads/banners/';
                 $name_arr = explode('/', $image->path);
                 
                 if(file_exists($path . $name_arr[4]) && $name_arr[4] != '') {
                     unlink($path . $name_arr[4]);
                 }
-                $this->save_file($_FILES, $data);
+                $this->save_file($_FILES, $data, 'banners');
 
                 $image->delete();
 
                 $image = [
-                    'path' => '/site/uploads/products' . '/' . $_FILES['image']['name'],
+                    'path' => '/site/uploads/banners' . '/' . $_FILES['image']['name'],
                     'imageable_id' => $model->id,
-                    'imageable_type' => 'products',
+                    'imageable_type' => 'banners',
                     'category' => 'image'
                 ];
 
@@ -96,15 +91,14 @@ class ProductService
             DB::beginTransaction();
 
             $model = $this->model->findOrFail($id);
-
+            
             $image = $model->image;
 
-            if(file_exists('.' . $image->path)) {
+            if(file_exists('.' . $image->path)){
                 unlink('.' . $image->path);
             }
-            
+
             $image->delete();
-            
             $model->delete();
             
             DB::commit();
@@ -134,7 +128,7 @@ class ProductService
 
     public function save_file($file, $data) {
         $name = $file['image']['name'];
-        $path = './site/uploads/products';
+        $path = './site/uploads/banners';
         if(!file_exists($path)) File::makeDirectory($path, 777, true);
 
         $output_file = $path . '/' . $name;

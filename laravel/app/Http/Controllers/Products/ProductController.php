@@ -62,4 +62,14 @@ class ProductController extends Controller
         ]);
     }
 
+    public function destroy($id)
+    {
+        $this->product_service->destroy($id);
+
+        return response()->json([
+            'error' => false,
+            'message' => 'Produto excluido com sucesso!'
+        ]);
+    }
+
 }

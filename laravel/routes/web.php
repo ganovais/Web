@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth', 'is_customer'], 'prefix' => 'sistema'], f
     require('web/category.php');
     require('web/status.php');
     require('web/products.php');
+    require('web/banners.php');
     
 });
 
