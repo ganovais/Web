@@ -15,6 +15,8 @@ class IsCustomer
             if(Auth::user()->is_customer) {
                 return redirect('painel');
             }
+        } else {
+            return redirect('login');
         }
 
         return $response;

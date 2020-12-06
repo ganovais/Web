@@ -11,6 +11,7 @@ use App\Services\CategoryService;
 use App\Services\ContactService;
 use App\Services\ProductService;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class SiteController extends Controller
 {
@@ -110,11 +111,12 @@ class SiteController extends Controller
         return view('site.auth.login');
     }
 
-    public function wishlist()
+    public function wishlist(User $model_user)
     {
         $banners = $this->banner_service->model->get();
+        $products = $model_user->findOrFail(Auth::user()->id)->products->load('image', 'category');
 
-        return view('site.wishlist.index', compact('banners'));
+        return view('site.wishlist.index', compact('banners', 'products'));
     }
 
     public function send(ContactRequest $request)
@@ -123,5 +125,23 @@ class SiteController extends Controller
             'error' => false,
             'message' => $this->contact_service->send($request->toArray()),
         ]);
+    }
+
+    public function liked_product($id, User $user_model)
+    {
+        $user = $user_model->findOrFail(Auth::user()->id);
+        $user->products()->attach($id);
+
+        return response()->json([
+            'error' => false,
+            'message' => 'Favoritado com sucesso'
+        ]);
+    }
+
+    public function unlike_product($id, User $user_model)
+    {
+        $user = $user_model->findOrFail(Auth::user()->id);
+        $user->products()->detach($id);
+        // $user->products()->sync([1, 2]);
     }
 }

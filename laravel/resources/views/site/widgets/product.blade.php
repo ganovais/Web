@@ -3,7 +3,7 @@
         <div class="product-header">
             <div class="product-subheader">
                 @if(Auth::check())
-                <i class="p-2 fas fa-heart"></i>
+                <i data-id="{{ $product->id }}" class="p-2 fas fa-heart"></i>
                 @endif
                 <span class="badge badge-theme">{{ $product->category->title }}</span>
             </div>

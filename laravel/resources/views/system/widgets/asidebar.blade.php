@@ -37,6 +37,13 @@
                 </li>
 
                 <li class="nav-item menu-open">
+                    <a href="{{ url('/sistema/clients') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        Clientes
+                    </a>
+                </li>
+
+                <li class="nav-item menu-open">
                     <a href="{{ url('sistema/products') }}" class="nav-link">
                         <i class="nav-icon fas fa-box"></i>
                         Produtos

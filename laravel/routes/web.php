@@ -20,14 +20,15 @@ Route::group(['namespace' => 'Site'], function() {
     Route::get('/contato', 'SiteController@contact');
     Route::get('/produto/{slug}', 'SiteController@detail');
     Route::get('/login', 'SiteController@login');
-    Route::get('wishlist', 'SiteController@wishlist');
+    Route::get('/wishlist', 'SiteController@wishlist');
     Route::post('/contato', 'SiteController@send');
     Route::get('/cart', 'SiteController@cart');
     Route::get('/checkout', 'SiteController@checkout');
     Route::get('/obrigado', 'SiteController@thanks');
     Route::get('/painel', 'SiteController@painel');
     Route::get('/pedidos', 'SiteController@orders');
-
+    Route::get('/liked/{id}', 'SiteController@liked_product')->middleware('is_customer');
+    Route::get('/unlike/{id}', 'SiteController@unlike_product')->middleware('is_customer');
 });
 
 
@@ -41,6 +42,7 @@ Route::group(['middleware' => ['auth', 'is_customer'], 'prefix' => 'sistema'], f
     require('web/status.php');
     require('web/products.php');
     require('web/banners.php');
+    require('web/client.php');
     
 });
 

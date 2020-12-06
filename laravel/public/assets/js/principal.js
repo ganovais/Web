@@ -38,7 +38,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.querySelectorAll('.remove-product-wishlist').forEach(button => {
         button.onclick = () => {
-            document.querySelector('.toaster-wishlist').classList.remove('d-none');
+            let id = button.dataset.id;
+            fetch(`unlike/${id}`)
+            .then(data => {
+                if(data.status == 200) {
+                    button.parentElement.parentElement.parentElement.remove();
+                    document.querySelector('.toaster-wishlist').classList.remove('d-none');
+                }
+            })
+
         }
     })
 
@@ -48,5 +56,25 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 3000);
 
     })
+
+    document.querySelectorAll('.product .fa-heart').forEach(button => {
+        button.onclick = () => {
+            // alert(button.dataset.id);
+            let id = button.dataset.id;
+            fetch(`liked/${id}`)
+            .then(data => {
+                console.log(data);
+                if(data.status == 200) {
+                    toastr.success('Favoritado');
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            return false
+        }
+    })
+
+
 
 })

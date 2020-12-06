@@ -281,3 +281,7 @@ footer a:hover{
 .painel:hover {
     background-color: #E76F51;
 }
+
+.fa-heart {
+    cursor: pointer;
+}

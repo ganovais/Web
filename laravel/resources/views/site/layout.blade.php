@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}" />
         <link rel="stylesheet" href="{{ asset('/assets/fontawesome/css/all.min.css') }}" />
         <link rel="icon" href="{{ asset('/assets/logo/icon.png') }}" />
+        <link href="{{ asset('system/plugins/toastr/toastr.css') }}" rel="stylesheet" />
+
         <title>@yield('title')</title>
     </head>
     <body>
@@ -69,5 +71,6 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/js/principal.js') }}"></script>
+        <script src="{{ asset('system/plugins/toastr/toastr.min.js') }}"></script>
     </body>
 </html>

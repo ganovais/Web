@@ -42,4 +42,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->attributes['is_customer'];
     }
+
+    public function products()
+    {
+        // product_user
+        return $this->belongsToMany('App\Modules\Product', 'wishlist');
+    }
 }
