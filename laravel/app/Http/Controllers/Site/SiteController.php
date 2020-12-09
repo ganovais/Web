@@ -35,7 +35,7 @@ class SiteController extends Controller
     public function products(Request $request)
     {
         $categories = $this->category_service->model->get();
-        $products = $this->product_service->model->with('category', 'image');
+        $products = $this->product_service->model->with('category', 'image')->where('active', 1);
 
         if(isset($request->category)) {
             $products = $products->where('category_id', $request->category);
@@ -45,11 +45,12 @@ class SiteController extends Controller
             $products = $products->where('title', 'LIKE', '%' . $request->title . '%');
         }
 
-        $products = $products->get();
+        $products_grid = $products->get();
+        $products = $products->paginate(12);
 
         $banners = $this->banner_service->model->get();
 
-        return view('site.products.index', compact('categories', 'products', 'banners'));
+        return view('site.products.index', compact('categories', 'products', 'banners', 'products_grid'));
     }
 
     public function cart()

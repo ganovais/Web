@@ -5,13 +5,13 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Categorias</h1>
+                <h1 class="m-0">Clientes</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ url('/sistema') }}">Dashboard</a></li>
                     <li class="breadcrumb-item active">
-                        <a href="{{ url('/sistema/categories') }}">Categorias</a>
+                        <a href="{{ url('/sistema/clients') }}">Clientes</a>
                     </li>
                 </ol>
             </div>
@@ -33,8 +33,15 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="name">Título</label>
-                                        <input type="text" class="form-control" name="title" id="title_input" placeholder="Título">
+                                        <label for="name">Nome</label>
+                                        <input type="text" class="form-control" name="name" id="name_input" placeholder="Nome">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="name">E-mail</label>
+                                        <input type="text" class="form-control" name="email" id="email_input" placeholder="E-mail">
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +59,8 @@
 
 <script>
     const BASE_URL = '{{ url('/') }}/sistema/' ;
-    let title_input = document.querySelector('#title_input');
+    let name_input = document.querySelector('#name_input');
+    let email_input = document.querySelector('#email_input');
 
     document.addEventListener('DOMContentLoaded', function() {
         
@@ -75,12 +83,13 @@
     })
 
     function get(id) {
-        fetch(`${BASE_URL}categories/${id}`)
+        fetch(`${BASE_URL}clients/${id}`)
         .then(response => response.json())
         .then(data => {
             if(!data.error) {
-                title_input.value = data.category.title;
-                document.querySelector('#title').innerHTML = 'Editando - ' + data.category.title;
+                name_input.value = data.client.name;
+                email_input.value = data.client.email;
+                document.querySelector('#title').innerHTML = 'Editando - ' + data.client.name;
             }
         })
             
@@ -88,10 +97,10 @@
     }
 
     function storeOrUpdate(id) {
-        let url = `${BASE_URL}categories`;
+        let url = `${BASE_URL}clients`;
         let method = 'POST';
         if(id) {
-            url = `${BASE_URL}categories/` + id;
+            url = `${BASE_URL}clients/` + id;
             method = 'PUT';
         }
 
@@ -103,13 +112,14 @@
                 'X-CSRF-TOKEN': document.getElementsByName('_token')[0].value,
             },
             body: JSON.stringify({
-                title: title_input.value,
+                name: name_input.value,
+                email: email_input.value,
             })
         })
         .then(response => response.json())
         .then(data => {
             if(!id && (typeof data.error !== 'undefined' && !data.error)) {
-                window.location.href = BASE_URL + 'categories';
+                window.location.href = BASE_URL + 'clients';
             }
             if(typeof data.error !== 'undefined' && !data.error) {
                 toastr.success(data.message);

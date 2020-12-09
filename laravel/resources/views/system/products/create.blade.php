@@ -31,7 +31,7 @@
                         @csrf
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="form-group">
                                         <label for="name">Título</label>
                                         <input type="text" class="form-control" name="title" id="title_input"
@@ -39,10 +39,18 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="form-group">
                                         <label for="name">Preço</label>
-                                        <input type="number" class="form-control" name="price" id="price_input" placeholder="Preço">
+                                        <input type="number" class="form-control" name="price" id="price_input"
+                                            placeholder="Preço">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" name="active" id="active_input">
+                                        <label class="form-check-label" for="active_input">Ativo/Desativo</label>
                                     </div>
                                 </div>
 
@@ -70,7 +78,8 @@
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="name">Descrição</label>
-                                        <textarea id="description_input" class="form-control" name="description"></textarea>
+                                        <textarea id="description_input" class="form-control"
+                                            name="description"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -94,6 +103,7 @@
     let category_input = document.querySelector('#category_input');
     let description_input = document.querySelector('#description_input');
     let image_input = document.querySelector('#image_input');
+    let active_input = document.querySelector('#active_input');
 
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -104,7 +114,7 @@
             if (id) {
                 get(id);
             }
-            
+
         }
 
         document.querySelector('#save').onsubmit = () => {
@@ -126,6 +136,7 @@
                     price_input.value = data.product.price;
                     category_input.value = data.product.category_id;
                     description_input.value = data.product.description;
+                    active_input.checked = data.product.active;
                     // Added and change './' to '/' in table images collunm path DB
                     document.querySelector('#product_image').src = PATH_URL + data.product.image.path;
 
@@ -153,13 +164,18 @@
 
 
         var formData = new FormData($('form#save')[0]);
-
+        if(active_input.checked) {
+            formData.append('active', 1);
+        } else {
+            formData.append('active', 0);
+        }
+        
         $.ajax({
             url: url,
             type: method,
             data: formData,
             success: function (data) {
-                
+
                 if (!id && (typeof data.error !== 'undefined' && !data.error)) {
                     window.location.href = BASE_URL + 'products';
                 }
@@ -176,7 +192,7 @@
             cache: false,
             contentType: false,
             processData: false
-            
+
         })
 
         return false;

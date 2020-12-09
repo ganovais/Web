@@ -282,6 +282,6 @@ footer a:hover{
     background-color: #E76F51;
 }
 
-.fa-heart {
+.fa-heart, .fa-trash-alt {
     cursor: pointer;
 }

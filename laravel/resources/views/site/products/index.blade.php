@@ -47,28 +47,51 @@ Conheça nossos produtos
         </div>
     </div>
 
+    @if($products->lastPage() > 1)
     <div class="row">
         <div class="col-12 text-center">
             <div class="pagination">
                 <div class="page">
-                    <i class="fas fa-arrow-left"></i>
-                </div>
-                <div class="page">
-                    <span>1</span>
-                </div>
-
-                <div class="page">
-                    <span>2</span>
+                    <a href="{{ $products->url(1) }}">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
                 </div>
 
+                @if($products->currentPage() != 1)
                 <div class="page">
-                    <span>3</span>
+                    <a href="{{ $products->url($products->currentPage() - 1) }}">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
                 </div>
+                @endif
+
+                @for($i=1; $i <= $products->lastPage(); $i++)
                 <div class="page">
-                    <i class="fas fa-arrow-right"></i>
+                    <span>
+                        <a href="{{ $products->url($i) }}">
+                            {{ $i }}
+                        </a>
+                    </span>
+                </div>
+                @endfor
+
+                @if($products->currentPage() != $products->lastPage())
+                <div class="page">
+                    <a href="{{ $products->url($products->currentPage()+ 1) }}">
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                @endif
+
+                <div class="page">
+                    <a href="{{ $products->url($products->lastPage()) }}">
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+    @endif
+
 </div>
 @endsection

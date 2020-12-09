@@ -85,6 +85,13 @@
                     </a>
                 </li>
 
+                <li class="nav-item menu-open">
+                    <a target="_blank" href="{{ url('/') }}" class="nav-link">
+                        <i class="nav-icon fas fa-home"></i>
+                        SITE
+                    </a>
+                </li>
+
             </ul>
         </nav>
     </div>

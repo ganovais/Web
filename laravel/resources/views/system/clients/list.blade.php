@@ -8,13 +8,6 @@
                 <h1>Clientes</h1>
             </div>
 
-            <div class="col-sm-6 text-right">
-                <a class="btn btn-primary" href="{{ url('/sistema/clients/create') }}">
-                    Cadastrar
-                    <i class="fas fa-plus"></i>
-                </a>
-            </div>
-            
         </div>
     </div>
 </section>
@@ -39,7 +32,7 @@
                                     <td>{{ $client->id }}</td>
                                     <td>{{ $client->name }}</td>
                                     <td class="text-right">
-                                        <a href="{{ url('sistema/categories/' . $client->id . '/edit') }}">
+                                        <a href="{{ url('sistema/clients/' . $client->id . '/edit') }}">
                                             <i class="fas fa-pencil-alt mr-3"></i>
                                         </a>
 
