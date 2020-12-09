@@ -11,7 +11,7 @@
 ## Onde ficam os CONTROLADORES?
     PROJETO -> app -> http -> controllers
 
-## 2º Crias das views do site  
+## 2º Views necessárias para o projeto LIBRARY
     - LIBRARY -> resources -> views  
         - Criar pastas 'site' e 'system' para salvar suas telas correspondentes e evitar desordem no árvore do laravel  
         **SITE**  
@@ -52,4 +52,21 @@
     - INPUT MASK: https://github.com/RobinHerbots/Inputmask  
     - TOASTR: https://github.com/CodeSeven/toastr  
     - AXIOS: https://github.com/axios/axios
+
+
+# Branchs
+## Aulas HTML + CSS
+    - 1 - 5
+
+## Aulas JS
+    - 6 e 7
+
+## Aulas JS e Modelagem do banco de dados
+    - 8
+
+## Aula Revisão
+    - 9 e 10
+
+## Restante Laravel
+
 
