@@ -1,46 +1,49 @@
-# E-softgraf  
+# PROJETO LIBRARY  
 
-## 1º Download  
-    - Laragon
-    - https://laragon.org/download/  
-        - Laragon Full
-    OU
-    - Xampp
-    - https://www.apachefriends.org/download.html
-        - PHP 7.4
+## 1º Cria projeto dentro do HTDOCS
+    - Abrir terminal
+        - cd c:\xampp\htdocs  
 
-## 2º Download  
-    - Composer  
-    - https://getcomposer.org/download/  
+    - composer create-project --prefer-dist laravel/laravel="7.*" library
+    - cd library
+    - Abrir projeto LIBRARY no VSCode
 
-## 3º Download  
-    - Node Js  
-    - https://nodejs.org/en/  
-    -- LTS
+## Onde ficam os CONTROLADORES?
+    PROJETO -> app -> http -> controllers
 
-## Instalando Laravel e Criando Projeto  
-    - composer global require laravel/installer  
-    - composer create-project --prefer-dist laravel/laravel="7.*" nome_projeto  
-        - "7.*" está se referindo a versão do laravel  
+## 2º Crias das views do site  
+    - LIBRARY -> resources -> views  
+        - Criar pastas 'site' e 'system' para salvar suas telas correspondentes e evitar desordem no árvore do laravel  
+        **SITE**  
+        - Home  
+        - Listagem de livros  
+        - Detalhe do livro
+        - Listagem de autores  
+        - Contato  
+        - Login   
+  
+        **SYSTEM**  
+        - Cadastro/Update de autor
+        - Listagem de autores
+        - Cadastro/Update de gênero
+        - Listagem de gênero
+        - Cadastro/Update de livro
+        - Listagem de livros
+        **opcional**
+        - Cadastro/Update de banner
+        - Listagem de banners
 
-## Instalando Node_modules dentro do projeto  
-    Ao acessar a pasta do projeto, cd C:\PATH_DO_PROJETO, rodar comando "npm i" para baixar o node  
+## 3º Back-end
+    - Routes
+    - Controllers
+    - Requests
+    - Services
+    - Modules/Models
+    - Fazer funcionar os formulários
 
-## Rodando Laravel  
-    Dentro da pasta do projeto, cd C:\PATH_DO_PROJETO, rodar comando para inicializar o laravel  
-    - php artisan serve  
-      
-    Outro meio de ver a aplicação rodando é colocar o projeto dentro do WWW do laragon  
-        - cd C:\laragon\www
-        - No navegador localhost/nome_projeto/public
-
-## Rodando Laravel baixado do GIT  
-    - cd laravel
-    - composer install
-    - criar arquivo .env
-    - php artisan key:generate
-    - php artisan serve  
-
+## Criar lógica do login laravel
+    - composer require laravel/ui:^2.4
+    - php artisan ui vue --auth
 
 ## ADMIN TEMPLATE  
     - https://github.com/colorlibhq/AdminLTE  
@@ -48,3 +51,5 @@
 ## PLUGINS  
     - INPUT MASK: https://github.com/RobinHerbots/Inputmask  
     - TOASTR: https://github.com/CodeSeven/toastr  
+    - AXIOS: https://github.com/axios/axios
+
